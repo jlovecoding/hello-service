@@ -1,0 +1,24 @@
+#build docker image
+./mvnw install dockerfile:build
+
+#run container with image
+docker run -p 8080:8080 -t k8sexample/hello-service
+
+#run minikube
+minikube stop; minikube delete; sudo rm -rf ~/.minikube; sudo rm -rf ~/.kube;
+minikube start --cpus 2 --memory 8192
+
+#build docker image for minikube env
+eval $(minikube docker-env)
+./mvnw install dockerfile:build
+
+#run kubernetes config files for our app
+kubectl apply -f deployment.yml
+kubectl apply -f service.yml
+#open browser
+minikube service hello-service
+minikube dashboard
+
+#delete service and deployment
+kubectl delete service hello-service
+kubectl delete deployment hello-deployment
