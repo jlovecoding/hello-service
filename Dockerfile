@@ -1,4 +1,5 @@
 FROM openjdk:8-jdk-alpine
+RUN apk update && apk add bash
 VOLUME /tmp
 ADD target/*.jar /
 

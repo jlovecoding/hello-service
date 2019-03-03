@@ -18,6 +18,8 @@ kubectl apply -f service.yml
 #open browser
 minikube service hello-service
 minikube dashboard
+#log into pod console
+kubectl exec -it hello-deployment-865757cb88-mcrrg -- /bin/bash
 
 #delete service and deployment
 kubectl delete service hello-service
