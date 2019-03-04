@@ -24,3 +24,7 @@ kubectl exec -it hello-deployment-865757cb88-mcrrg -- /bin/bash
 #delete service and deployment
 kubectl delete service hello-service
 kubectl delete deployment hello-deployment
+
+#addons
+minikube addons enable kube-dns
+minikube addons list

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: hello-app
-          image: k8sexample/hello-service2
+          image: k8sexample/hello-service
           imagePullPolicy: Never
           ports:
             - containerPort: 8080
