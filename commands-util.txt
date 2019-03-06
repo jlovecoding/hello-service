@@ -28,3 +28,6 @@ kubectl delete deployment hello-deployment
 #addons
 minikube addons enable kube-dns
 minikube addons list
+
+#config maps
+kubectl apply -f kubernetes/hello-service-configmap.yml

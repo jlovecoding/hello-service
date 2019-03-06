@@ -27,3 +27,9 @@ spec:
             timeoutSeconds: 10
             periodSeconds: 20
             failureThreshold: 1
+          env:
+            - name: HELLO_SERVICE_GREETER
+              valueFrom:
+                configMapKeyRef:
+                  name: hello-service
+                  key: hello-service-greeter

@@ -4,7 +4,7 @@ VOLUME /tmp
 ADD target/*.jar /
 
 ENV JAVA_OPTS=""
-ENV SPRING_PROFILE="default"
+ENV SPRING_PROFILE="prod"
 
 ENTRYPOINT exec java $JAVA_OPTS \
  -Djava.security.egd=file:/dev/./urandom \
