@@ -1,5 +1,6 @@
 #build docker image
 ./mvnw install dockerfile:build
+docker build -t k8sexample/hello-service-service:1.0 .
 
 #run container with image
 docker run -p 8080:8080 -t k8sexample/hello-service
@@ -31,3 +32,14 @@ minikube addons list
 
 #config maps
 kubectl apply -f kubernetes/hello-service-configmap.yml
+
+#ingress
+minikube enable ingress
+kubectl apply -f kubernetes/ingress.yml
+kubectl describe ing gateway-ingress
+minikube status
+kubectl get pods -n kube-system | grep nginx-ingress-controller
+minikube ip
+
+
+
