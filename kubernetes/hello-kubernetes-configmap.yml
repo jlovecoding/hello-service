@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: hello-kubernetes-configmap
+data:
+  hello-service-greeter: kubernetes-greeter-prod
+  person-names-service-url: http://hello-kubernetes-gw/person-names/personNames

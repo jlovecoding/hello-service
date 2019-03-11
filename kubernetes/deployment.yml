@@ -33,5 +33,10 @@ spec:
             - name: HELLO_SERVICE_GREETER
               valueFrom:
                 configMapKeyRef:
-                  name: hello-service
+                  name: hello-kubernetes-configmap
                   key: hello-service-greeter
+            - name: PERSON_NAMES_SERVICE_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: hello-kubernetes-configmap
+                  key: person-names-service-url
