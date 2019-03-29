@@ -5,6 +5,11 @@ docker build -t k8sexample/hello-service-service:1.0 .
 #run container with image
 docker run -p 8080:8080 -t k8sexample/hello-service
 
+#mysql
+docker run -d -e MYSQL_DATABASE=hellodb -e MYSQL_USER=hellouser -e MYSQL_PASSWORD=hellopass -e MYSQL_ROOT_PASSWORD=hellopass -p 3306:3306 --name=hellodbdocker mysql
+docker exec -i hellodbdocker mysql -uroot -phellopass
+docker exec -t -i hellodbdocker mysql -uroot -phellopass
+
 #run minikube
 minikube stop; minikube delete; sudo rm -rf ~/.minikube; sudo rm -rf ~/.kube;
 minikube start --cpus 2 --memory 8192
